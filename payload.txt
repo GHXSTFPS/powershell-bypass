@@ -1,3 +1,5 @@
+REM Currently untested
+
 ATTACKMODE HID
 LED R
 GUI R
