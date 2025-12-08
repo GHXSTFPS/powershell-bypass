@@ -1,2 +1,2 @@
 # powershell-bypass
-lscsicpl.exe bypass in duckyscript
+lscsicpl.exe UAC bypass in duckyscript
