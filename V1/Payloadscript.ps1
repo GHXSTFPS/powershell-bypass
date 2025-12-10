@@ -14,9 +14,6 @@ try {
 } catch {
     Write-Warning "Could not disable AV. Make sure you are running as Administrator. $_"
 }
-#---------------------------
-# Python Install
-# --------------------------
 # ---------------------------
 # Python Check + Install
 # ---------------------------
@@ -141,7 +138,7 @@ if ($windowsFolder -and (Test-Path $windowsFolder)) {
 # ---------------------------
 Write-Host "`nRunning Python script..."
 try {
-    python $pyScript.FullName
+    python $pyScript.FullName all
 } catch {
     Write-Error "Failed to run Python script: $_"
 }
