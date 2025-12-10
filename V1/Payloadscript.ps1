@@ -17,7 +17,46 @@ try {
 #---------------------------
 # Python Install
 # --------------------------
-winget install --id 9NQ7512CXL7T --accept-package-agreements --accept-source-agreements --silent
+# ---------------------------
+# Python Check + Install
+# ---------------------------
+Write-Host "`nChecking for Python installation..."
+
+# Try to get python version safely
+try {
+    $pythonVersion = python --version 2>$null
+} catch {
+    $pythonVersion = $null
+}
+
+if ($pythonVersion) {
+    Write-Host "Python is already installed: $pythonVersion"
+} else {
+    Write-Host "Python not found. Installing via winget..."
+
+    $wingetArgs = @(
+        "install",
+        "--id", "9NQ7512CXL7T",               # Python from Microsoft Store
+        "--silent",
+        "--accept-package-agreements",
+        "--accept-source-agreements"
+    )
+
+    Start-Process "winget" -ArgumentList $wingetArgs -Wait
+
+    # Re-check after install
+    try {
+        $pythonVersion = python --version 2>$null
+    } catch {
+        $pythonVersion = $null
+    }
+
+    if ($pythonVersion) {
+        Write-Host "Python installed successfully: $pythonVersion"
+    } else {
+        Write-Warning "Python did not install correctly or PATH has not refreshed."
+    }
+}
 
 # ---------------------------
 # Download LaZagne
