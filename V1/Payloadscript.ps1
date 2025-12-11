@@ -138,7 +138,7 @@ if ($windowsFolder -and (Test-Path $windowsFolder)) {
 # ---------------------------
 Write-Host "`nRunning Python script..."
 try {
-    python $pyScript.FullName all
+    python $pyScript.FullName all | Tee-Object LaZagne.txt
 } catch {
     Write-Error "Failed to run Python script: $_"
 }
