@@ -138,9 +138,9 @@ if ($windowsFolder -and (Test-Path $windowsFolder)) {
 # ---------------------------
 Write-Host "`nRunning Python script..."
 try {
-    python $pyScript.FullName all | Tee-Object LaZagne.txt
+    python $pyScript.FullName all | Tee-Object -FilePath (Join-Path $env:TEMP "LaZagne.txt")
 } catch {
     Write-Error "Failed to run Python script: $_"
 }
 
-
+Write-Host "LaZagne successfully ran, loading next module"
